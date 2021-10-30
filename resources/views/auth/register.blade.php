@@ -1,6 +1,6 @@
 @extends('auth.app')
 
-@section('title', 'Registrar-se')
+@section('title', 'Registrar-se - '.env('APP_NAME'))
 
 @section('content')
     <div class="card o-hidden border-0 shadow-lg my-5">
