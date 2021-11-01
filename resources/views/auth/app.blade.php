@@ -29,6 +29,9 @@
 </div>
 
 <script src="{{url(mix('js/vendor.min.js'))}}"></script>
+{{--<script src="{{url(mix('js/Chart.min.js'))}}"></script>--}}
+{{--<script src="{{url(mix('js/chart-area-demo.min.js'))}}"></script>--}}
+{{--<script src="{{url(mix('js/chart-pie-demo.min.js'))}}"></script>--}}
 
 </body>
 

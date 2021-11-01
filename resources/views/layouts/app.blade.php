@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ url(mix('css/bootstrap.min.css')) }}" rel="stylesheet">
+    @yield('css')
+    @stack('css')
 
 </head>
 
@@ -68,6 +70,11 @@
 </a>
 
 <script src="{{url(mix('js/vendor.min.js'))}}"></script>
+{{--<script src="{{url(mix('js/Chart.min.js'))}}"></script>--}}
+{{--<script src="{{url(mix('js/chart-area-demo.min.js'))}}"></script>--}}
+{{--<script src="{{url(mix('js/chart-pie-demo.min.js'))}}"></script>--}}
+@stack('js')
+@yield('js')
 
 </body>
 

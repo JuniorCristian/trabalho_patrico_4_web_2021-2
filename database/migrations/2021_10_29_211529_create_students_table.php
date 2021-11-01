@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->id('ag');
             $table->foreignId('user_id');
             $table->foreignId('course_id');
-            $table->string('nome');
+            $table->string('name');
             $table->date('born_date');
             $table->date('entry_date');
             $table->timestamps();
