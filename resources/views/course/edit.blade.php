@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Novo aluno - '.env('APP_NAME'))
+@section('title', 'Editar aluno - '.env('APP_NAME'))
 
 @section('content')
     <!-- Begin Page Content -->
@@ -12,11 +12,12 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                <h6 class="m-0 font-weight-bold text-primary">Cadastrar Aluno</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Editar Aluno</h6>
             </div>
             <div class="card-body">
-                {{ form()->open(array('url' => route('student.store'), 'class'=>'needs-validation', 'novalidate')) }}
-                    @include('students.form')
+                {{ form()->open(array('url' => route('student.update', ['aluno'=>$aluno->ag]), 'class'=>'needs-validation', 'novalidate')) }}
+                @method('put')
+                @include('students.form')
                 {{ form()->close() }}
             </div>
         </div>

@@ -21,6 +21,7 @@ mix
             'node_modules/jquery/dist/jquery.js',
             'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
             'node_modules/jquery.easing/jquery.easing.js',
+            'node_modules/jquery-datepicker/jquery-datepicker.js',
             'resources/js/vendor/sb-admin-2.js',
             'node_modules/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.js',
             'node_modules/datatables.net/js/jquery.dataTables.js',
@@ -36,7 +37,8 @@ mix
             'node_modules/datatables.net-responsive/js/dataTables.responsive.js',
             'node_modules/datatables.net-responsive-bs4/js/responsive.bootstrap4.js',
             'node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.js',
-            'node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.js'
+            'node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.js',
+            'node_modules/sweetalert2/dist/sweetalert2.all.js'
         ],
         'public/js/vendor.min.js'
     )
@@ -49,7 +51,8 @@ mix
             'node_modules/datatables.net-buttons-bs4/css/buttons.bootstrap4.css',
             'node_modules/datatables.net-fixedcolumns-bs4/css/fixedColumns.bootstrap4.css',
             'node_modules/datatables.net-responsive-bs4/css/responsive.bootstrap4.css',
-            'node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.css'
+            'node_modules/datatables.net-rowgroup-bs4/css/rowGroup.bootstrap4.css',
+            'node_modules/sweetalert2/dist/sweetalert2.css'
         ],
         'public/css/vendor.min.css'
     )

@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Student\StoreRequest;
 use App\Models\Course;
 use App\Models\Student;
+use App\Models\User;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
 
 class StudentController extends Controller
@@ -16,13 +21,15 @@ class StudentController extends Controller
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function datatable(Request $request)
     {
         $query = Student::whereCourse()
             ->rangeEntryDate()
             ->rangeBornDate();
+
+//        dd(route('student.edit', ['aluno'=>1]));
 
 
         return DataTables::of($query)
@@ -43,9 +50,9 @@ class StudentController extends Controller
             })
             ->addColumn('actions', function ($row){
                 $actions = '<div class="buttons_datatable">';
-                $actions .= '<a class="btn btn-primary mr-2" data-toggle="tooltip" data-placement="top" title="Notas de Atividades"><i class="fa fa-check-double"></i></a>';
-                $actions .= '<a class="btn btn-warning mr-2" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a>';
-                $actions .= '<a class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fa fa-trash"></i></a>';
+                $actions .= '<a href="'.route('student.edit', ['aluno'=>$row->ag]).'" class="btn btn-primary mr-2" data-toggle="tooltip" data-placement="top" title="Notas de Atividades"><i class="fa fa-check-double"></i></a>';
+                $actions .= '<a href="'.route('student.edit', ['aluno'=>$row->ag]).'" class="btn btn-warning mr-2" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a>';
+                $actions .= '<a class="btn btn-danger deleta" data-toggle="tooltip" data-placement="top" title="Excluir" data-id="'.$row->ag.'"><i class="fa fa-trash"></i></a>';
                 $actions .= '</div>';
 
                 return $actions;
@@ -60,28 +67,73 @@ class StudentController extends Controller
         return view('students.create', compact('courses'));
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $formData = $request->only(['name', 'email', 'level']);
+            $formData['level'] = 3;
+            $user = User::create($formData);
+            $formData = $request->only(['name', 'entry_date', 'born_date', 'course_id']);
+            $formData['user_id'] = $user->id;
+            Student::create($formData);
+            Session::flash('alert-success', 'Aluno cadastrado com sucesso!');
+            DB::commit();
+            return redirect()->route('student.index');
+        }catch (Exception $e){
+            Session::flash('alert-error', 'Falha ao cadastrar Aluno!');
+            DB::rollBack();
+            return redirect()->route('student.index');
+        }
     }
 
-    public function show(Student $student)
+    public function show(Student $aluno)
     {
-        //
+
     }
 
-    public function edit(Student $student)
+    public function edit(Student $aluno)
     {
-        //
+        $courses = Course::query()->pluck('name', 'id')->prepend('', '');
+        return view('students.edit', compact('aluno', 'courses'));
     }
 
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Student $aluno)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $formData = $request->only(['name', 'email']);
+            $user = User::find($aluno->user_id);
+            $user->updated($formData);
+            $formData = $request->only(['name', 'entry_date', 'born_date', 'course_id']);
+            $formData['user_id'] = $user->id;
+            $aluno->update($formData);
+            Session::flash('alert-success', 'Aluno atualizado com sucesso!');
+            DB::commit();
+            return redirect()->route('student.index');
+        }catch (Exception $e){
+            Session::flash('alert-error', 'Falha ao atualizar Aluno!');
+            DB::rollBack();
+            return redirect()->route('student.index');
+        }
     }
 
-    public function destroy(Student $student)
+    public function destroy(Student $aluno)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $user = $aluno->user();
+            $aluno->grades()->delete();
+            $aluno->enrollments()->delete();
+            $aluno->delete();
+            $user->delete();
+            Session::flash('alert-success', 'Aluno excluído com sucesso!');
+            DB::commit();
+            return redirect()->route('student.index');
+        }catch (Exception $e){
+            Session::flash('alert-error', 'Falha ao excluir Aluno!');
+            DB::rollBack();
+            return redirect()->route('student.index');
+        }
     }
 }

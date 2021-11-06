@@ -9,7 +9,9 @@ class Enrollment extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = ['student_id', 'subject_id'];
+
     protected $fillable = [
-        'name'
+        'locked'
     ];
 }

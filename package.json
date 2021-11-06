@@ -30,8 +30,11 @@
         "datatables.net-responsive-bs4": "^2.2.9",
         "datatables.net-rowgroup-bs4": "^1.1.4",
         "jquery": "^3.6.0",
+        "jquery-datepicker": "^1.12.3",
+        "jquery-ui": "^1.13.0",
         "jquery.easing": "^1.4.1",
         "jszip": "^3.7.1",
-        "pdfmake": "^0.2.2"
+        "pdfmake": "^0.2.2",
+        "sweetalert2": "^11.1.9"
     }
 }

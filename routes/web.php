@@ -14,6 +14,11 @@ use App\Http\Controllers\{ StudentController, CourseController, TeacherControlle
 |
 */
 
+Route::resourceVerbs([
+    'create'=>'cadastro',
+    'edit'=>'editar'
+]);
+
 Route::middleware('auth')->group(function (){
     Route::get('/', function () {
         return view('dashboard.index');
@@ -21,7 +26,7 @@ Route::middleware('auth')->group(function (){
     Route::redirect('/home', '/')->name('home');
 
     Route::post('alunos/datatable', [StudentController::class, 'datatable'])->name('student.datatable');
-    Route::resource('alunos', StudentController::class)->names('student')->parameters(['aluno'=>'student']);
+    Route::resource('alunos', StudentController::class)->names('student');
 
     Route::resource('professores', TeacherController::class)->names('teacher')->parameters(['professore'=>'teacher']);
 

@@ -10,11 +10,10 @@ class Student extends Model
     use HasFactory;
 
     protected $primaryKey = 'ag';
-
     protected $fillable = [
         'user_id',
         'course_id',
-        'nome',
+        'name',
         'born_date',
         'entry_date'
     ];
@@ -27,6 +26,16 @@ class Student extends Model
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function grades(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Grade::class, 'student_id', 'ag');
+    }
+
+    public function enrollments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Enrollment::class, 'student_id', 'ag');
     }
 
     public function getEmailAttribute()

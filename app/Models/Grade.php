@@ -9,7 +9,10 @@ class Grade extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = ['task_id', 'student_id'];
+    public $incrementing = false;
+
     protected $fillable = [
-        'name'
+        'value'
     ];
 }
