@@ -27,19 +27,19 @@
                 Administrativo
             </div>
 
-            <li class="nav-item">
+            <li class="nav-item {{ (route_name() == 'course.index' || route_name() == 'course.edit' || route_name() == 'course.create')?'active':'' }}">
                 <a class="nav-link" href="{{ route('course.index') }}">
                     <i class="fas fa-fw fa-school"></i>
                     <span>Cursos</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item {{ (route_name() == 'student.index' || route_name() == 'student.edit' || route_name() == 'student.create')?'active':'' }}">
                 <a class="nav-link" href="{{ route('student.index') }}">
                     <i class="fas fa-fw fa-user-graduate"></i>
                     <span>Alunos</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item {{ (route_name() == 'teacher.index' || route_name() == 'teacher.edit' || route_name() == 'teacher.create')?'active':'' }}">
                 <a class="nav-link" href="{{ route('teacher.index') }}">
                     <i class="fas fa-fw fa-chalkboard-teacher"></i>
                     <span>Professores</span></a>

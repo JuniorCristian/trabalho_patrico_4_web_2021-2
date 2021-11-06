@@ -7,13 +7,13 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Alunos</h1>
+        <h1 class="h3 mb-2 text-gray-800">Cursos</h1>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                <h6 class="m-0 font-weight-bold text-primary">Listagem de Alunos</h6>
-                <a href="{{ route('student.create') }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Novo aluno</a>
+                <h6 class="m-0 font-weight-bold text-primary">Listagem de Cursos</h6>
+                <a href="{{ route('course.create') }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Novo curso</a>
             </div>
             <div class="card-body">
                 @include('layouts.message')
