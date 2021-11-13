@@ -19,6 +19,7 @@ mix
     .scripts(
         [
             'node_modules/jquery/dist/jquery.js',
+            'node_modules/jquery-mask-plugin/dist/jquery.mask.js',
             'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
             'node_modules/jquery.easing/jquery.easing.js',
             'node_modules/jquery-datepicker/jquery-datepicker.js',
@@ -36,8 +37,7 @@ mix
             'node_modules/datatables.net-buttons-bs4/js/buttons.bootstrap4.js',
             'node_modules/datatables.net-responsive/js/dataTables.responsive.js',
             'node_modules/datatables.net-responsive-bs4/js/responsive.bootstrap4.js',
-            'node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.js',
-            'node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.js',
+            'resources/js/vendor/dataTables.rowsGroups.js',
             'node_modules/sweetalert2/dist/sweetalert2.all.js'
         ],
         'public/js/vendor.min.js'
@@ -58,4 +58,5 @@ mix
     )
     .sass('resources/sass/sb-admin-2.scss','public/css/bootstrap.min.css')
     .copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts')
+    .copy('resources/js/vendor/datatable-pt_br.json', 'public/datatable-pt_br.json')
     .version();

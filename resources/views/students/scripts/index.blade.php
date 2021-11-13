@@ -10,7 +10,7 @@
         initComplete: function () {
         },
         language: {
-            url: 'https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json'
+            url: '{{ url(mix('datatable-pt_br.json')) }}'
         },
 
         "pageLength": 10,

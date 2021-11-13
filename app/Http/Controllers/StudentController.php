@@ -72,7 +72,7 @@ class StudentController extends Controller
         DB::beginTransaction();
         try {
             $formData = $request->only(['name', 'email', 'level']);
-            $formData['level'] = 3;
+            $formData['level'] = 2;
             $user = User::create($formData);
             $formData = $request->only(['name', 'entry_date', 'born_date', 'course_id']);
             $formData['user_id'] = $user->id;
@@ -110,12 +110,11 @@ class StudentController extends Controller
             $aluno->update($formData);
             Session::flash('alert-success', 'Aluno atualizado com sucesso!');
             DB::commit();
-            return redirect()->route('student.index');
         }catch (Exception $e){
             Session::flash('alert-error', 'Falha ao atualizar Aluno!');
             DB::rollBack();
-            return redirect()->route('student.index');
         }
+        return redirect()->route('student.index');
     }
 
     public function destroy(Student $aluno)

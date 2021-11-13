@@ -14,4 +14,9 @@ class Teacher extends Model
         'nome',
         'born_date'
     ];
+
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class, 'teacher_id', 'id');
+    }
 }

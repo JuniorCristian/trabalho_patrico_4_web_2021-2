@@ -17,7 +17,7 @@ class CreateSubjectsTable extends Migration
             $table->id();
             $table->foreignId('course_unit_id');
             $table->foreignId('teacher_id');
-            $table->char('term', '6');
+            $table->char('term', '7');
             $table->timestamps();
 
             $table->foreign('course_unit_id')->on('course_units')->references('id');

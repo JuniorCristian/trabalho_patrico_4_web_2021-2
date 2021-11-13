@@ -1,9 +1,9 @@
 {
-    "/css/bootstrap.min.css": "/css/bootstrap.min.css?id=c5fe38bf5778f2fc238a",
+    "/css/bootstrap.min.css": "/css/bootstrap.min.css?id=0e21f14c328f144772c1",
     "/js/Chart.min.js": "/js/Chart.min.js?id=ff2c8fa2e8f8c348765b",
     "/js/chart-area-demo.min.js": "/js/chart-area-demo.min.js?id=e483fe0bcf5f32ba40d4",
     "/js/chart-pie-demo.min.js": "/js/chart-pie-demo.min.js?id=ebf17d5ec23036352629",
-    "/js/vendor.min.js": "/js/vendor.min.js?id=116d7c8aea9712aaa8f9",
+    "/js/vendor.min.js": "/js/vendor.min.js?id=f744efb4c0087ddea0b1",
     "/css/vendor.min.css": "/css/vendor.min.css?id=b5c197709fb348898d91",
     "/webfonts/fa-brands-400.eot": "/webfonts/fa-brands-400.eot?id=0868992b7c56298026b7",
     "/webfonts/fa-brands-400.svg": "/webfonts/fa-brands-400.svg?id=1d5619cd804367cefe6d",
@@ -19,5 +19,6 @@
     "/webfonts/fa-solid-900.svg": "/webfonts/fa-solid-900.svg?id=37bc7099f6f1ba802361",
     "/webfonts/fa-solid-900.ttf": "/webfonts/fa-solid-900.ttf?id=d44877cb1fa07af67d56",
     "/webfonts/fa-solid-900.woff": "/webfonts/fa-solid-900.woff?id=26f963f67e793d91cc76",
-    "/webfonts/fa-solid-900.woff2": "/webfonts/fa-solid-900.woff2?id=184257670d2e18e37fc9"
+    "/webfonts/fa-solid-900.woff2": "/webfonts/fa-solid-900.woff2?id=184257670d2e18e37fc9",
+    "/datatable-pt_br.json": "/datatable-pt_br.json?id=e9976d083c778669113c"
 }
